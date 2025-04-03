@@ -7,7 +7,7 @@ class PhoneMask {
 	patterndigits = {};    //Цифры шаблона
 	valid         = false; //Шаблон прошёл валидацию, всё введено правильно
 	/**
-	 ** @desc Обработка ввода пользователя
+	 ** @desc Конструктор объекта
 	 ** @vals (htmlElemnt) input - инпут формы для привязки маски, (string) maskpattern - шаблон заполнения телефона
 	 **/
 	constructor( input , maskpattern = "+7(___) ___-__-__" ) {
