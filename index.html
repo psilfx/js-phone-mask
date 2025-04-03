@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Маска телефона на js</title>	
+	<script src="js/mask.js"></script>
+</head>
+<form class="mask-form" >
+	<div>
+		<input class="phone-mask" name="phone" type="text" placeholder="Номер телефона" required />
+	</div>
+	<button>Звонок</button>
+</form>
+<style>
+form {
+	margin: 0 auto;
+	width: 400px;
+	padding: 15px;
+}
+form input {
+	margin-bottom: 15px;
+	padding: 5px 10px;
+}
+</style>
+<body>
+<script>
+	let userphoninputs = document.querySelectorAll( ".phone-mask" );
+	let form           = document.querySelectorAll( ".mask-form" );
+	let phonemasks     = {};
+	for( let i = 0; i < userphoninputs.length; i++ ) {
+		phonemasks[ i ] = new PhoneMask( userphoninputs[ i ] , "+7(___) ___-__-__" );
+	}
+	for( let f = 0; f < form.length; f++ ) {
+		form[ f ].onsubmit = function() {
+			let valid = true;
+			for( let i = 0; i < userphoninputs.length; i++ ) {
+				if( !phonemasks[ i ].IsValid() ) valid = false;
+			}
+			if( valid ) {
+				alert( "Успешно" );
+			} else {
+				alert( "Не все поля заполнены правильно" );
+			}
+			return false;
+		}
+	}
+</script>
+</body>
+</html>
